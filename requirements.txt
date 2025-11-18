@@ -1,0 +1,25 @@
+# Core ML Libraries
+fasttext==0.9.3
+transformers==4.51.3
+torch==2.7.0
+sentencepiece==0.2.1
+
+# Data Processing
+pandas==2.2.3
+numpy==1.26.4
+
+# Visualization
+matplotlib==3.10.1
+seaborn==0.13.2
+
+# ML Utilities
+scikit-learn==1.7.2
+tqdm==4.66.6
+
+# Language Processing
+langdetect==1.0.9
+indic-transliteration==2.3.75
+
+# Additional Dependencies
+pillow==10.1.0
+scipy==1.14.1

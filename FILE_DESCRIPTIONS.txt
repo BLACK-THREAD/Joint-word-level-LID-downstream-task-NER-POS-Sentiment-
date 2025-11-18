@@ -1,0 +1,376 @@
+================================================================================
+                        FILE DESCRIPTIONS & SYNOPSIS
+================================================================================
+
+📋 CORE APPLICATION FILES
+================================================================================
+
+1. hinglish_analyzer_gui.py
+   -------------------------
+   PURPOSE: Main graphical user interface application
+   
+   FEATURES:
+   - Dark-themed Tkinter GUI
+   - Text input box for Hinglish text
+   - Real-time analysis with threading
+   - Color-coded output for POS tags and entities
+   - Displays: LID, ML, MLI, Sentiment, NER, POS
+   
+   HOW TO RUN:
+   python hinglish_analyzer_gui.py
+   
+   DEPENDENCIES:
+   - tkinter (GUI framework)
+   - fasttext (language detection)
+   - transformers (NLP models)
+   - All dictionaries and helper functions
+   
+   OUTPUT:
+   Interactive GUI window with analysis results
+
+
+2. complete_hinglish_pipeline.py
+   ------------------------------
+   PURPOSE: Complete NLP analysis pipeline (command-line)
+   
+   FEATURES:
+   - Processes Hinglish text through all stages
+   - Converts Romanized Hindi to Devanagari
+   - Detects language per word (LID)
+   - Translates to English (ML)
+   - Identifies dominant language (MLI)
+   - Performs Sentiment, NER, POS analysis
+   
+   HOW TO RUN:
+   python complete_hinglish_pipeline.py
+   
+   OUTPUT:
+   Console output with formatted analysis results
+   Example test cases included in the file
+
+
+3. correct_hinglish_converter.py
+   ------------------------------
+   PURPOSE: Hinglish to Devanagari converter with LID
+   
+   FEATURES:
+   - Converts Romanized Hindi words to Devanagari
+   - Keeps English words unchanged
+   - Word-level language detection
+   - English translation (Matrix Language)
+   - Matrix Language Index calculation
+   
+   HOW TO RUN:
+   python correct_hinglish_converter.py
+   
+   ALGORITHM:
+   1. Split text into words
+   2. Detect language for each word (FastText + dictionary)
+   3. Convert Hindi words to Devanagari
+   4. Keep English words as-is
+   5. Generate English translation
+   6. Calculate dominant language
+   
+   OUTPUT:
+   - Converted text (mixed script)
+   - Language IDs per word
+   - English translation
+   - Matrix Language Index
+
+
+================================================================================
+📊 EVALUATION & TESTING FILES
+================================================================================
+
+4. evaluate_model_final.py
+   -----------------------
+   PURPOSE: Model evaluation on COMI-LINGUA dataset
+   
+   FEATURES:
+   - Tests LID accuracy on test dataset
+   - Calculates metrics (accuracy, precision, recall, F1)
+   - Generates visualization charts
+   - Creates detailed evaluation report
+   
+   HOW TO RUN:
+   python evaluate_model_final.py
+   
+   REQUIREMENTS:
+   - COMI-LINGUA/LID_test.csv must exist
+   
+   OUTPUT:
+   - report/evaluation_report.txt
+   - report/visualizations/accuracy.jpg
+   - report/visualizations/distribution.jpg
+   - report/visualizations/performance.jpg
+   
+   METRICS:
+   - Accuracy: 68.79%
+   - Test samples: 100 sentences (2,009 words)
+
+
+5. evaluate_model_simple.py
+   ------------------------
+   PURPOSE: Simplified evaluation script (alternative)
+   
+   Similar to evaluate_model_final.py but with:
+   - Simpler code structure
+   - Fewer visualizations
+   - Faster execution
+
+
+6. evaluate_model.py
+   -----------------
+   PURPOSE: Comprehensive evaluation (original version)
+   
+   Features more detailed analysis including:
+   - LID evaluation
+   - MLI evaluation
+   - Confusion matrices
+   - Multiple visualization types
+
+
+================================================================================
+🔧 UTILITY & HELPER FILES
+================================================================================
+
+7. test_lid.py
+   -----------
+   PURPOSE: Basic FastText LID testing
+   
+   FEATURES:
+   - Simple word-level language detection
+   - Tests FastText model functionality
+   - Example usage demonstrations
+   
+   HOW TO RUN:
+   python test_lid.py
+   
+   USE CASE:
+   Quick testing of language identification
+
+
+8. hinglish_converter.py
+   ----------------------
+   PURPOSE: Simple transliteration using indic-transliteration
+   
+   FEATURES:
+   - Basic Romanized Hindi to Devanagari conversion
+   - Uses indic-transliteration library
+   - Dictionary-based approach
+   
+   NOTE: This is an earlier version. Use correct_hinglish_converter.py instead.
+
+
+9. hinglish_nlp_pipeline.py
+   -------------------------
+   PURPOSE: NLP analysis functions (Sentiment, NER, POS)
+   
+   FEATURES:
+   - Loads transformer models
+   - Sentiment analysis function
+   - Named Entity Recognition
+   - Part-of-Speech tagging
+   - Example test cases
+   
+   HOW TO RUN:
+   python hinglish_nlp_pipeline.py
+   
+   OUTPUT:
+   Console output with NLP analysis results
+
+
+10. indicxlit_test.py
+    -----------------
+    PURPOSE: Testing IndicXlit transliteration
+    
+    FEATURES:
+    - Tests various transliteration approaches
+    - Experiments with different libraries
+    
+    NOTE: Experimental file, not used in main application
+
+
+================================================================================
+📦 DATA FILES
+================================================================================
+
+11. lid.176.bin
+    -----------
+    TYPE: Binary model file
+    SIZE: ~126 MB
+    
+    PURPOSE: FastText language identification model
+    
+    LANGUAGES: Supports 176 languages including:
+    - English (en)
+    - Hindi (hi)
+    - And 174 others
+    
+    USAGE: Loaded by fasttext.load_model()
+    
+    SOURCE: Facebook AI Research
+    URL: https://dl.fbaipublicfiles.com/fasttext/supervised-models/
+
+
+12. requirements.txt
+    ----------------
+    PURPOSE: Python package dependencies
+    
+    CONTAINS:
+    - fasttext==0.9.3
+    - transformers==4.51.3
+    - torch==2.7.0
+    - pandas, numpy, matplotlib, seaborn
+    - scikit-learn, tqdm
+    - langdetect, indic-transliteration
+    
+    USAGE: pip install -r requirements.txt
+
+
+================================================================================
+📁 DATASET FOLDER
+================================================================================
+
+13. COMI-LINGUA/
+    ------------
+    PURPOSE: Code-Mixed Linguistic Annotation dataset
+    
+    SOURCE: LINGO Lab, IIT Gandhinagar
+    
+    FILES:
+    - LID_test.csv (22 MB) - Language ID test data
+    - LID_train.csv (84 MB) - Language ID training data
+    - MLI_test.csv (1.1 MB) - Matrix Language Index test
+    - MLI_train.csv (4.3 MB) - Matrix Language Index training
+    - NER_test.csv (19 MB) - Named Entity Recognition test
+    - NER_train.csv (86 MB) - Named Entity Recognition training
+    - POS_test.csv (18 MB) - Part-of-Speech test
+    - POS_train.csv (70 MB) - Part-of-Speech training
+    - MT_test.csv (11 MB) - Machine Translation test
+    - MT_train.csv (47 MB) - Machine Translation training
+    
+    FORMAT: CSV with JSON-encoded annotations
+    
+    USAGE: Used by evaluation scripts
+
+
+================================================================================
+📊 REPORT FOLDER
+================================================================================
+
+14. report/
+    -------
+    PURPOSE: Stores evaluation results and visualizations
+    
+    STRUCTURE:
+    report/
+    ├── evaluation_report.txt - Text report with metrics
+    ├── tests/ - Test data (empty, for future use)
+    └── visualizations/
+        ├── accuracy.jpg - Accuracy bar chart
+        ├── distribution.jpg - Language distribution comparison
+        └── performance.jpg - Performance gauge
+    
+    GENERATED BY: evaluate_model_final.py
+
+
+================================================================================
+📖 DOCUMENTATION FILES
+================================================================================
+
+15. README.md
+    ---------
+    PURPOSE: Main project documentation
+    
+    CONTAINS:
+    - Project overview
+    - Installation instructions
+    - Usage examples
+    - File structure
+    - Troubleshooting guide
+    - Credits and licenses
+
+
+16. SETUP_INSTRUCTIONS.txt
+    ----------------------
+    PURPOSE: Step-by-step setup guide
+    
+    CONTAINS:
+    - Quick start guide (3 steps)
+    - Platform-specific instructions
+    - Troubleshooting solutions
+    - Verification steps
+
+
+17. FILE_DESCRIPTIONS.txt (This File)
+    ---------------------------------
+    PURPOSE: Detailed description of all project files
+    
+    CONTAINS:
+    - File-by-file synopsis
+    - Purpose and features
+    - How to run each file
+    - Dependencies and outputs
+
+
+================================================================================
+🔄 WORKFLOW DIAGRAM
+================================================================================
+
+User Input (Hinglish Text)
+         ↓
+hinglish_analyzer_gui.py (GUI)
+         ↓
+complete_hinglish_pipeline.py (Processing)
+         ↓
+    ┌────┴────┐
+    ↓         ↓
+FastText   Transformers
+(LID)      (Sentiment, NER, POS)
+    ↓         ↓
+correct_hinglish_converter.py
+(Script Conversion + Translation)
+         ↓
+Formatted Output with:
+- Devanagari text
+- Language IDs
+- English translation
+- Sentiment, NER, POS
+
+
+================================================================================
+🎯 WHICH FILE TO USE?
+================================================================================
+
+FOR INTERACTIVE ANALYSIS:
+→ hinglish_analyzer_gui.py (GUI application)
+
+FOR BATCH PROCESSING:
+→ complete_hinglish_pipeline.py (command-line)
+
+FOR CONVERSION ONLY:
+→ correct_hinglish_converter.py
+
+FOR MODEL EVALUATION:
+→ evaluate_model_final.py
+
+FOR QUICK TESTING:
+→ test_lid.py
+
+
+================================================================================
+💡 TIPS
+================================================================================
+
+1. Start with hinglish_analyzer_gui.py for easiest usage
+2. First run will download models (~2GB) - be patient
+3. Subsequent runs are much faster
+4. GUI provides the best user experience
+5. Use evaluation scripts to test model performance
+6. Check README.md for detailed documentation
+
+
+================================================================================
+END OF FILE DESCRIPTIONS
+================================================================================

@@ -1,0 +1,207 @@
+================================================================================
+                    HINGLISH TEXT ANALYZER - SETUP GUIDE
+================================================================================
+
+📦 QUICK START (3 Steps)
+================================================================================
+
+1. INSTALL PYTHON DEPENDENCIES
+   
+   Open terminal/command prompt in the project folder and run:
+   
+   pip install -r requirements.txt
+   
+   OR (if pip3 is required):
+   
+   pip3 install -r requirements.txt
+
+
+2. VERIFY FASTTEXT MODEL
+   
+   Check if 'lid.176.bin' file exists in the project folder.
+   Size should be approximately 126 MB.
+   
+   If missing, download it:
+   
+   curl -o lid.176.bin https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin
+
+
+3. RUN THE APPLICATION
+   
+   python hinglish_analyzer_gui.py
+   
+   OR:
+   
+   python3 hinglish_analyzer_gui.py
+
+
+================================================================================
+🖥️  PLATFORM-SPECIFIC INSTRUCTIONS
+================================================================================
+
+WINDOWS
+-------
+1. Install Python 3.8+ from python.org
+2. Open Command Prompt (cmd) in project folder
+3. Run: pip install -r requirements.txt
+4. Run: python hinglish_analyzer_gui.py
+
+Note: If tkinter is missing, reinstall Python with "tcl/tk" option checked
+
+
+macOS
+-----
+1. Python 3 is usually pre-installed
+2. Open Terminal in project folder
+3. Run: pip3 install -r requirements.txt
+4. Run: python3 hinglish_analyzer_gui.py
+
+Note: If tkinter issues occur, run: brew install python-tk
+
+
+LINUX (Ubuntu/Debian)
+---------------------
+1. Install Python: sudo apt-get install python3 python3-pip python3-tk
+2. Open Terminal in project folder
+3. Run: pip3 install -r requirements.txt
+4. Run: python3 hinglish_analyzer_gui.py
+
+
+================================================================================
+⚠️  TROUBLESHOOTING
+================================================================================
+
+PROBLEM: "No module named 'tkinter'"
+SOLUTION: 
+  - Windows: Reinstall Python with tcl/tk option
+  - macOS: brew install python-tk
+  - Linux: sudo apt-get install python3-tk
+
+
+PROBLEM: "torch not found" or CUDA errors
+SOLUTION: Install CPU version of PyTorch:
+  pip install torch --index-url https://download.pytorch.org/whl/cpu
+
+
+PROBLEM: Models downloading slowly
+SOLUTION: First run downloads ~2GB of models. Be patient. Subsequent runs are fast.
+
+
+PROBLEM: Out of memory
+SOLUTION: Close other applications. The models need ~2GB RAM.
+
+
+PROBLEM: "lid.176.bin not found"
+SOLUTION: Download manually:
+  https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin
+  Place in project root folder.
+
+
+================================================================================
+📁 REQUIRED FILES CHECKLIST
+================================================================================
+
+Essential files (must have):
+✓ hinglish_analyzer_gui.py
+✓ lid.176.bin (126 MB)
+✓ requirements.txt
+✓ README.md
+
+Optional files (for testing/evaluation):
+○ complete_hinglish_pipeline.py
+○ correct_hinglish_converter.py
+○ evaluate_model_final.py
+○ COMI-LINGUA/ folder (for evaluation only)
+
+
+================================================================================
+🎯 USAGE EXAMPLES
+================================================================================
+
+1. GUI APPLICATION (Easiest)
+   
+   python hinglish_analyzer_gui.py
+   
+   - Type text in input box
+   - Click "Analyze" button
+   - View color-coded results
+
+
+2. COMMAND LINE PIPELINE
+   
+   python complete_hinglish_pipeline.py
+   
+   - Analyzes predefined test cases
+   - Outputs to console
+
+
+3. MODEL EVALUATION
+   
+   python evaluate_model_final.py
+   
+   - Tests on COMI-LINGUA dataset
+   - Generates report in report/ folder
+
+
+================================================================================
+💾 DISK SPACE REQUIREMENTS
+================================================================================
+
+Minimum: 3 GB
+- FastText model: 126 MB
+- Transformers models: ~2 GB (downloaded on first run)
+- COMI-LINGUA dataset: 350 MB
+- Python packages: ~500 MB
+
+
+================================================================================
+🌐 INTERNET REQUIREMENTS
+================================================================================
+
+Required for:
+- First-time setup (downloading models)
+- Installing Python packages
+
+Not required for:
+- Running the application after setup
+- Analyzing text (works offline)
+
+
+================================================================================
+✅ VERIFICATION
+================================================================================
+
+To verify installation is successful:
+
+1. Run: python hinglish_analyzer_gui.py
+2. You should see: "Loading models..." then "✓ Models loaded!"
+3. GUI window should open
+4. Try analyzing: "main theek hoon"
+5. Should output: "मैं ठीक हूं"
+
+
+================================================================================
+📧 SUPPORT
+================================================================================
+
+If you encounter issues:
+1. Check README.md for detailed documentation
+2. Verify all files are present
+3. Ensure Python 3.8+ is installed
+4. Check internet connection for first run
+5. Review error messages carefully
+
+
+================================================================================
+🎉 READY TO USE!
+================================================================================
+
+Once setup is complete, you can:
+- Analyze Hinglish text
+- Convert Romanized Hindi to Devanagari
+- Get sentiment, NER, and POS analysis
+- View color-coded grammatical tags
+- Translate to English
+
+Enjoy analyzing Hinglish text! 🚀
+================================================================================

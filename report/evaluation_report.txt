@@ -1,0 +1,35 @@
+
+======================================================================
+HINGLISH LID MODEL - EVALUATION REPORT
+======================================================================
+
+Date: 2025-11-14 00:36:32
+Dataset: COMI-LINGUA Test Set
+
+======================================================================
+RESULTS
+======================================================================
+
+Samples Evaluated: 100 sentences
+Total Words: 2009
+Correct Predictions: 1382
+
+Accuracy: 0.6879 (68.79%)
+
+Language Distribution (Ground Truth):
+  - English: 631 words (31.4%)
+  - Hindi:   1378 words (68.6%)
+
+Language Distribution (Predicted):
+  - English: 1016 words (50.6%)
+  - Hindi:   993 words (49.4%)
+
+======================================================================
+VISUALIZATIONS
+======================================================================
+
+✓ report/visualizations/accuracy.jpg
+✓ report/visualizations/distribution.jpg
+✓ report/visualizations/performance.jpg
+
+======================================================================

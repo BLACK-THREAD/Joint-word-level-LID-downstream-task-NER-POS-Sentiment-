@@ -1,0 +1,112 @@
+================================================================================
+                    SETUP CHECKLIST - BEFORE RUNNING
+================================================================================
+
+Use this checklist to ensure everything is ready before running the application.
+
+□ STEP 1: VERIFY PYTHON INSTALLATION
+  □ Python 3.8 or higher installed
+  □ Can run: python --version OR python3 --version
+  □ pip or pip3 is available
+
+□ STEP 2: CHECK REQUIRED FILES
+  □ hinglish_analyzer_gui.py exists
+  □ lid.176.bin exists (126 MB)
+  □ requirements.txt exists
+  □ README.md exists
+
+□ STEP 3: INSTALL DEPENDENCIES
+  □ Run: pip install -r requirements.txt
+  □ No error messages during installation
+  □ All packages installed successfully
+
+□ STEP 4: VERIFY DISK SPACE
+  □ At least 3 GB free disk space
+  □ Space for model downloads (~2 GB)
+
+□ STEP 5: CHECK INTERNET CONNECTION
+  □ Internet available for first run
+  □ Can download models from HuggingFace
+
+□ STEP 6: TEST BASIC FUNCTIONALITY
+  □ Run: python hinglish_analyzer_gui.py
+  □ See "Loading models..." message
+  □ See "✓ Models loaded!" message
+  □ GUI window opens successfully
+
+□ STEP 7: TEST ANALYSIS
+  □ Type test text: "main theek hoon"
+  □ Click "Analyze" button
+  □ See output: "मैं ठीक हूं"
+  □ All sections display correctly
+
+================================================================================
+TROUBLESHOOTING CHECKLIST
+================================================================================
+
+IF GUI DOESN'T OPEN:
+□ Check if tkinter is installed
+□ Windows: Reinstall Python with tcl/tk
+□ macOS: brew install python-tk
+□ Linux: sudo apt-get install python3-tk
+
+IF MODELS DON'T LOAD:
+□ Check internet connection
+□ Wait for download to complete (~2 GB)
+□ Check disk space
+□ Try running again (models cache locally)
+
+IF ERRORS OCCUR:
+□ Read error message carefully
+□ Check README.md troubleshooting section
+□ Verify all dependencies installed
+□ Check Python version (3.8+)
+
+================================================================================
+QUICK START OPTIONS
+================================================================================
+
+OPTION 1: Use Quick Start Script
+  Linux/Mac: □ ./RUN_ME.sh
+  Windows:   □ RUN_ME.bat
+
+OPTION 2: Manual Start
+  □ python hinglish_analyzer_gui.py
+
+OPTION 3: Command Line
+  □ python complete_hinglish_pipeline.py
+
+================================================================================
+VERIFICATION TESTS
+================================================================================
+
+TEST 1: Basic Conversion
+  Input:  "main theek hoon"
+  Output: "मैं ठीक हूं"
+  □ PASS / □ FAIL
+
+TEST 2: Mixed Language
+  Input:  "how are you bhai"
+  Output: "how are you भाई"
+  □ PASS / □ FAIL
+
+TEST 3: English Only
+  Input:  "hello world"
+  Output: "hello world"
+  □ PASS / □ FAIL
+
+TEST 4: Hindi Only
+  Input:  "namaste kaise ho"
+  Output: "नमस्ते कैसे हो"
+  □ PASS / □ FAIL
+
+================================================================================
+READY TO USE!
+================================================================================
+
+If all checkboxes are checked, you're ready to use the Hinglish Text Analyzer!
+
+Run: python hinglish_analyzer_gui.py
+
+Enjoy! 🚀
+================================================================================
